@@ -2,6 +2,7 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+const Constraint = Matter.Constraint;
 
 var engine, world;
 var block1, block2, block3, block4, block5, block6, block7, block8, block9;
@@ -24,7 +25,8 @@ function preload(){
 
 function setup() {
   createCanvas(1500,600);
- 
+  engine = Engine.create();
+  world = engine.world;
 
 
   block1 = new Block(600,260,30,40);
@@ -72,8 +74,7 @@ function setup() {
   World.add(world,ball);
 
   sling = new Chain(this.ball,{x:150, y:160});
-  engine = Engine.create();
-  world = engine.world;
+  
 
 }
 
